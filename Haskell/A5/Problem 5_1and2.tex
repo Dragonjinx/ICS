@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+    \title{\textbf{Problem 5}}
+    \maketitle
+
+    \section{5.1}
+
+    We consider a b-compliment number system with base 5 and 4 ``digits".\\
+    For the representation of -1 in this number system:
+    First we consider the representation of 1. Which is:\\
+    $1(5 ^ 0)$:\\
+    \\
+    0001\\
+    \\
+    We choose the negative such that when the two numbers are added, the last 4 "digits" represent a 0 and we ignore the overflow.
+    In this case, the number that satisfies this condition for -1 is:\\
+    \\
+    4444\\
+    \\
+    We use the same process for the representation of -8.\\
+    Representation of 8:\\
+    \\
+    $1(5 ^ 1) + 3(5 ^ 0)$\\
+    \\
+    0013\\
+    \\
+    Number which causes an overflow equivalent to (-8):\\
+    \\
+    4432\\
+    \\
+    When adding the two numbers:\\
+    \\ 
+    $\ 4444$\\
+    $\ 4432$\\
+    \_\_\_\_\_\_\_\\
+    $14431$\\
+    \\
+    We only take 4 of the least significant bits and ignore the overflow giving us:\\
+    \\
+    4431\\
+    \\
+    Converting the number into decimal:\\
+    \\
+    4431 (base 5)\\
+    \\
+    $4(5 ^ 3) + 4(5 ^ 2) + 3(5 ^ 1) + 1(5 ^ 0)$\\
+    \\
+    616 (base 10)
+	\\\\
+	\\\\
+    \section{5.2}
+
+    We are working with a 32 bit format of floating point numbers. This means that we have a 23 bit mantissa to store numbers.
+    Thus we can store 24 bits in total after normalization.\\
+    The decimal number we want to convert to a floating point binary is -273.15
+    Our first step is to set the "signed bit" to 1 because our number is negative.
+    Then we convert the digits before   decimal to binary:\\
+    273\\
+    $(2 ^ 8) + (2 ^ 4) + (2 ^ 0)$\\
+    100010001\\
+    \\
+    Now we use an algorithm for the decimal part of our number:\\
+    Since we already need 8 bits to represent the previous binary, we are left with 15 bits\\
+    $0.15 -> 0.3$ (0)\\
+    $0.3\  -> 0.6$ (00)\\
+    $0.6\  -> 1.2$ (001)\\
+    $0.2\ -> 0.4$ (0010)\\
+    $0.4\  -> 0.8$ (00100)\\
+    $0.8\  -> 1.6$ (001001)\\
+    $0.6\  -> 1.2$ (0010011)\\
+    From this point on, the pattern is recursive. Thus our binary approximation will be:\\
+    001001100110011\\
+    We stop at the 15th bit.\\
+    The binary conversion of 273.15 is:\\
+    \\
+    100010001.001001100110011\\
+    \\
+    After normalization we get the mantissa:\\
+    \\
+    00010001001001100110011\\
+    \\
+    And the exponent: $2 ^ 8$\\
+    But we add 127 to the exponent and store it as binary giving us:\\
+    \\
+    10000111\\
+    \\
+    Thus the final 32 bit floating point representation is:\\
+    \\
+    11000011100010001001001100110011\\
+    \\
+    \\
+    For the approximation of the decimal fraction stored:\\
+    \\
+    001001100110011\\
+    \\
+    $(2^{-3}) + (2^{-6}) + (2^{-7}) + (2^{-10}) + (2^{-11}) + (2^{-14}) + (2^{-15})$\\
+    \\
+    $0.1499939$
+
+\end{document}

@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+    \title{\textbf{Problem 4}}
+    \maketitle
+
+    \section{4.1}
+
+    Let $\Sigma$ be a finite set of alphabets. Then $\Sigma^*$ is the set of all words that can be created
+    out of the symbols in $\Sigma$ i.e. $\Sigma^*$ is the kleene closure of $\Sigma$\\
+
+    a):\\
+    Let $\preceq \subseteq \Sigma^* \times \Sigma^* : \{p, w \in \Sigma^*, \exists q \in \Sigma^*: p \preceq w \Rightarrow  w = pq \lor w = p \}$\\
+    For the relation $\preceq$ on $\Sigma^*$ to be a partial order it must be reflexive, antisymmetric and transitive on $\Sigma^*$\\
+
+    Checking for reflexivity:\\
+    for $p \preceq p$\\
+    This signifies that:\\
+    $p = p\epsilon$ where $\epsilon$ is an empty 	set.\\
+    Which is true because we allow such cases to occour in this relation. ($w = p$)\\
+    Thus the relation is reflexive.\\
+
+    Checking for antisymmetry:\\
+    if $(p, q) \in \preceq q = pa$\\
+    if $(q, p) \in \preceq p = qb$\\
+
+    The only way this can be true is if $a, b$ is $\emptyset$ and $p = q$.\\
+    $p = q$ is allowed for this relation. Thus The relation is antisymmetric.\\
+
+    Checking for transitivity:\\
+
+    for $(p, q) \in \preceq q = pa$\\
+    for $(q, r) \in \preceq r = qb$\\
+    if $(p, q) \in \preceq \land (q, r) \in \preceq$\\
+    $r = qb$\\
+    $r = (pa)b$\\
+    $r = pab$\\
+    Thus $(p, r) \in \preceq^*$
+
+    b)\\
+    Let $\prec \subset \Sigma^* \times \Sigma^* : \{p, w \in \Sigma^*, \exists q \in \Sigma^* : p \prec w \Rightarrow  w = pq \lor w \neq p \}$\\
+    For the relation $\prec$ on $\Sigma^*$ to be a partial order it must be reflexive, antisymmetric and transitive on $\Sigma^*$\\
+    
+    Checking for reflexivity:\\
+    for $p \preceq p$\\
+    This signifies that:\\
+    $p = pa$\\
+    where $a$ is $\emptyset$
+    Which is false because we do not allow such cases to occour in this relation. ($w \neq p$)\\
+    Thus the relation is ireflexive.\\
+
+    Checking for asymmetry:\\
+
+    if $(p, q) \in \preceq q = pa$\\
+    if $(q, p) \in \preceq p = qb$\\
+
+    The only way this can be true is if $a, b$ is $\emptyset$ and $p = q$.
+    but $p = q$ is explicitely not allowed for this relation. Thus The relation is asymmetric.
+
+    Checking for transitivity:\\
+
+    for $(p, q) \in \prec q = pa$\\
+    for $(q, r) \in \prec r = qb$\\
+    if $(p, q) \in \prec \land (q, r) \in \prec$\\
+    $r = qb$\\
+    $r = (pa)b$\\
+    $r = pab$\\
+    Thus $(p, r) \in \prec^*$ 
+	\\\\
+    c)\\
+    The relation $\preceq$ is not total because for $(a, b) \in \preceq$ and $(b, a) \in \preceq$ if and only if $a = b$
+    The relation does not allow for all other cases of $a$ and $b$ thus it is not total.
+
+    The relation $\prec$ is not total because it does not allow for the case where $a = b\epsilon$ where $\epsilon$ is an empty set.    
+
+
+
+    \section{4.2}
+
+    Let $A$, $B$ and $C$ be sets and let $f : A \rightarrow B$ and $g : B \rightarrow C$ be two functions
+
+    a)
+
+    For $g\circ f$ if $f$ is not injective, it means that:
+    $f(a) = f(b)$\\
+    which implies that $g\circ f(a) = g\circ f(b)$\\
+    Thus $g\circ f$ is not injective thus it is also not bijective.\\
+
+
+    For $g\circ f$ if $g$ is not surjective, it means that:\\
+    $\forall a \not \exists g\circ f(a)$\\
+    Because if $f(a)$ exists for $a$, if $g$ is not\\ surjective then $\exists y$ such that $y = f(a) \not \exists g(y)$\\
+
+    b)\\
+    Let $f : A \rightarrow B \{\forall a \in A, a = f(a)\}$\\
+    Let $g : B \rightarrow C \{\forall b \in B, b^2 = g(b)\}$\\
+    $g\circ f(a) = g(f(a))$\\
+    $g\circ f(a) = g(b)$\\
+    $g\circ f(a) = b^2$\\
+
+    Here, $f$ is injective and $g$ is surjective  but $g\circ f$ is not a bijective.
+
+    c)\\
+    Let $f : A \rightarrow B \{\forall a \in A, \sqrt{a} = f(a)\}$\\
+    Let $g : B \rightarrow C \{\forall b \in B, b^2 = g(b)\}$\\
+    $g\circ f(a) = g(f(a))$\\
+    $g\circ f(a) = g(\sqrt{a})$\\
+    $g\circ f(a) = (\sqrt{a})^2$\\
+    $g\circ f(a) = a$\\
+
+    Here $f$ is not surjective and $g$ is not injective but $g\circ f$ is bijective. 
+
+\end{document}

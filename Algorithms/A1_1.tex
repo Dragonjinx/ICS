@@ -1,0 +1,48 @@
+
+Naive String Search:
+
+	A B B A B B C A C C A B A B A C B C C A B A B
+	A b a b                                      
+	  A b a b                                     
+	    A b a b                                   
+    	  A B A b                                 
+    	    A b a b                                
+    	      A b a b                              
+    	        A b a b                             
+   	        	  A b a b                               
+   	        	    A b a b                              
+   	        	      A b a b                           
+   	        	        A B A B                     
+   	        	         	        	        
+
+Boyer-Moore Bad Character Only:
+
+	A B B A B B C A C C A B A B A C B C C A B A B
+	a b a B                                        
+	  A B A B                                 
+	    a b A B                 
+	      a b a B
+	      		  a b a B
+	                a B A B
+	                    A B A B
+	                       
+Boyer-Moore Good Suffix Only:
+	A B B A B B C A C C A B A B A C B C C A B A B
+	a b a B                                       
+	  A B A B
+	      a b a B
+	        a b a B
+	          a b a B          
+	            a b a B       
+	              a b a B
+	                a b A B
+	                    A B A B  
+	                       
+Boyer-Moore Both Rules:
+	A B B A B B C A C C A B A B A C B C C A B A B
+	a b a B
+      A B A B
+          a b a B
+		          a b a B		
+		            a b A B                   
+                        A B A B

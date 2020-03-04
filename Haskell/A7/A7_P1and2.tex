@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+    \title{Problemsheet 7}
+    \maketitle
+
+    \section{\textbf{7.1}}
+    Prove two elementary function $\rightarrow$ and $\neg$ are universal.\\
+    We know that the functions $\land \  \lor \  \neg$ are universal functions.\\
+    If $\rightarrow$ and $\neg$ can express any of the above boolean functions, (mainly $\land$ and $\lor$) it is universal.\\
+    Truth table for A $\rightarrow$ B:\\
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            A & B & A $\rightarrow$ B & A $\land$ B & A $\lor$ B\\
+            \hline
+            0 & 0 & 1 & 0 & 0 \\
+            \hline
+            0 & 1 & 1 & 0 & 1 \\
+            \hline
+            1 & 0 & 0 & 0 & 1\\
+            \hline
+            1 & 1 & 1 & 1 & 1\\
+            \hline
+        \end{tabular}
+    \end{center}
+    for $\land$ :
+    $\neg(A \rightarrow \neg B)$ gives the same result in the truth table.\\
+    for $\lor$ :
+    $\neg B \rightarrow A$ gives the same result in the truth table.\\
+    Since $\land$ and $\lor$ can both be expressed by $\rightarrow$ and $\neg$
+
+    \section{\textbf{2}}
+
+    Boolean Expression:\\
+    $\varphi(P, Q, R, S) = (\neg P \lor Q) \land (\neg Q \lor R) \land (\neg R \lor S) \land (\neg S \lor P)$
+    \subsection{\textbf{a}}
+    $\varphi$ gives 1 when $(\neg P \lor Q)$ , $(\neg Q \lor R)$, $(\neg R \lor S)$, $(\neg S \lor P)$
+    The only conditions for which this is true are:\\
+    P = 0, Q = 0, R = 0, S = 0\\
+    P = 1, Q = 1, R = 1, S = 1\\
+    \subsection{\textbf{b}}
+    From the cases where the expression is true, we can drive the DNF as:\\
+    $(\neg P \land \neg Q \land \neg R \land \neg S) \lor (P \land Q \land R \land S)$\\
+    \subsection{\textbf{c}}
+    Given CNF:\\
+    \\
+    $(\neg P \lor Q) \land (\neg Q \lor R) \land (\neg R \lor S) \land (\neg S \lor P)$\\
+    \\
+    For $(\neg P \lor Q) \land (\neg Q \lor R)$\\
+    \\
+    $\neg P \land (\neg Q \lor R) \lor Q \land (\neg Q \lor R)$\\
+    \\
+    $(\neg P \land \neg Q) \lor (\neg P \land R) \lor (Q \land R)$\\
+    \\
+    For $(\neg R \lor S) \land (\neg S \lor P)$\\
+    \\
+    $\neg R \land (\neg S \lor P) \lor S \land (\neg S \lor P)$\\
+    \\
+    $(\neg R \land \neg S) \lor (\neg R \land P) \lor (S \land P)$\\
+    \\
+    Equating both of the equations:\\
+    \\
+    $\{(\neg P \land \neg Q) \lor (\neg P \land R) \lor (Q \land R)\} \land \{(\neg R \land \neg S) \lor (\neg R \land P) \lor (S \land P)\}$\\
+    \\
+    For  $(\neg P \land \neg Q)\land \{(\neg R \land \neg S) \lor (\neg R \land P) \lor (S \land P)\}$ \\
+    \\
+    $\{(\neg P \land \neg Q) \land (\neg R \land \neg S)\} \lor \{(\neg P \land \neg Q) \land (\neg R \land P)\} \lor \{(\neg P \land \neg Q) \land (S \land P)\}$\\
+    \\
+    $(\neg P \land \neg Q \land \neg R \land \neg S)$\\
+    \\
+    For $(\neg P \land R) \land \{(\neg R \land \neg S) \lor (\neg R \land P) \lor (S \land P)\}$\\
+    \\
+    $\{(\neg P \land R) \land (\neg R \land \neg S)\} \lor \{(\neg P \land R) \land (\neg R \land P)\} \lor \{(\neg P \land R) \land (S \land P)\}$\\
+    \\
+    $0 \lor 0 \lor 0$\\
+    \\
+    $0$\\
+    \\
+    For $(Q \land R) \land \{(\neg R \land \neg S) \lor (\neg R \land P) \lor (S \land P)\}$\\
+    \\
+    $\{(Q \land R) \land (\neg R \land \neg S)\} \lor \{(Q \land R) \land (\neg R \land P)\} \lor \{(Q \land R) \land (S \land P)\}$\\
+    \\
+    $ 0 \lor 0 \lor (P \land Q \land R \land S)$\\
+    \\
+    $(P \land Q \land R \land S)$\\
+    \\
+    Equating all:\\
+    \\
+    $(\neg P \land \neg Q \land \neg R \land \neg S) \lor 0 \lor (P \land Q \land R \land S)$\\
+    \\
+    $(\neg P \land \neg Q \land \neg R \land \neg S) \lor (P \land Q \land R \land S)$\\
+
+
+
+\end{document}

@@ -1,0 +1,113 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+\title{\textbf{Problem set 6}}
+\maketitle
+
+    \section{6.1}
+    \subsection{a}
+    Converting all hexadecimal numbers to their representation in ascii:\\
+    *start*\\
+    Simplicity, carried to the extreme, becomes elegance.\\
+    - Jon Franklin\\
+    \\
+    *end*\\
+    \subsection{b}
+    \begin{center}
+        \begin{tabular}{c c c}
+            \hline
+            UTF - 8 & Unicode & Name\\
+            \hline
+	        7c & U+007C & Vertical Line\\
+            \hline
+            2b & U+007B & Left curly bracket\\
+            \hline
+            7d & U+007D & Right Curly bracket\\
+            \hline
+            e2 & U+00E2 & Latin small letter with circumflex\\
+            \hline
+            88 & U+0088 & Character tabulation set\\
+            \hline
+            aa & U+00AA & Feminine ordinal indicator\\
+            \hline
+            92 & U+0092 & Private Use Two\\
+            \hline
+            c2 & U+00C2 & Latin capital letter A with circumflex\\
+            \hline
+            ad & U+00AD & Soft Hyphen\\
+            \hline
+            80 & U+0080 & Euro Sign\\
+            \hline
+            93 & U+0093 & Set Transmit State\\
+            \hline
+            91 & U+0091 & Private Use One\\
+            \hline
+            94 & U+0094 & Cancel Character\\
+            \hline
+            20 & U+0020 & Space\\
+            \hline
+            3d & U+003D & Equals Sign\\
+            \hline
+            37 & U+0037 & Digit 7\\
+            \hline
+            0a & U+000A & Line Feed\\
+            \hline
+        \end{tabular}
+    \end{center}
+    \subsection{c}
+    For a chinease text with 800,000 characters in UTF-32,\\
+    One character takes 4 bytes to be stored.\\
+    Total Bytes = 800,000 * 4 i.e. 3,200,000 bytes.\\
+    \\
+    In UTF-8, chinease characters fall undeer the code block U+4E00 to U+9FFF.\\
+    This falls under the section U+0800 till U+FFFF which requires 3 bytes to encode
+    a character.\\
+    Total bytes = 800,000 * 3 i.e. 2,400,000 bytes.\\
+
+    \section{6.2}
+    \subsection{a}
+    \begin{center}
+        \begin{tabular}{c c}
+            \hline
+            No. & Date and Time\\
+            \hline
+            1 & 2019-10-15 T 15:15:00 +02:00\\
+            2 & 2019-10-13 T 17:15:00 +00:00\\
+            3 & 2019-10-13 T 13:15:00 +00:00\\
+            4 & 2019-10-13 T 15:15:00 -02:00\\
+            5 & 2019-10-13 T 00:30:00 -12:45\\
+            6 & 2019-10-15 T 05:15:00 +12:00\\
+            \hline
+        \end{tabular}
+    \end{center}
+    We convert all the times to UTC and compare them:\\
+    \begin{center}
+        \begin{tabular}{c c}
+            \hline
+            No. & Date and Time\\
+            \hline
+            1 & 2019-10-15 T 13:15:00 +00:00\\
+            2 & 2019-10-13 T 17:15:00 +00:00\\
+            3 & 2019-10-13 T 13:15:00 +00:00\\
+            4 & 2019-10-13 T 17:15:00 -00:00\\
+            5 & 2019-10-13 T 13:15:00 -00:00\\
+            6 & 2019-10-15 T 17:15:00 +00:00\\
+            \hline
+        \end{tabular}
+    \end{center}
+    Thus we conclude:\\
+    2 and 4 are the same times.\\
+    3 and 5 are the same times.\\
+    \subsection{b}
+    It is useful to see if the conversion to UTF was done from which time zone.\\
+    \subsection{c}
+    The year 2038 problem arises from how dates are stored.
+    If we store dates as the number of seconds that has passed since 1 January 1970,
+    and use a limited amount of space to store that information, eventually the 
+    memory will reach maximum capacity and then overflow. This means after the year 2038
+    will overflow the storage and the computes will go back to displaying 1 January 1970 as the date.
+    One solution to this problem is to allocate more bits to store the information.\\
+    :)
+\end{document}
+

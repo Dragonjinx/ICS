@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+    \title{\textbf{Problem 3}}
+    \maketitle
+    \section{\textbf{3.1}}
+    Prove the following statement by induction:
+    The number of elements in the power set $P(S)$ of a finite set $S$ with $n$ elements is $2^n$.
+    Let us assume a set $K$ where:
+
+    $K = \{ \forall n , n \in N, |S| = n : |P(S)| = 2^n \}$
+    \\\\
+    Base Case : $n = 0$
+    $|P(S)| = 2^0 = 1$ because the only subset of S is an empty set.
+    \\\\
+    Let the new set be $Q = S \cup \{a\}$.
+    Thus $|Q| = n + 1$.
+    For $Q$ there are two types of subsets, $P(S)$ and $R \cup {a}, R\in P(S)$.
+    Since there are $|P(S)|$ amount of $R$ we can concider,
+    $|P(Q)| = |P(S)| + |R \cup {a}|$
+    $|P(Q)| = 2^n + 2^n$
+    $|P(Q)| = 2^n(1 + 1)$
+    $|P(Q)| = 2^n . 2$
+    $|P(Q)| = 2^{n+1}$
+
+    Since the assumption holds for $n + 1$, K is inductive.
+    This the assumption holds for all values of $n$.
+
+
+    \section{\textbf{3.2}}
+    
+    a) $R = \{(a, b) | a, b \in Z \land a \neq b\}$
+
+        For reflexivity
+        $\forall a \in A, (a, a) \notin R$
+        Since a and b are never equal.
+        \\\\
+        For symmetry:
+        $\forall a, b \in A, (a, b) \notin R \Rightarrow (b, a) \notin R$
+        \\\\
+        Because if $(a, b) \no-tin R \Rightarrow (b, a) \notin R$ it implies $a \neq b$ and $b \neq a$ which is not true for this relation.
+        \\\\
+        For transitivity:
+        $\forall a, b, c \in A, ((a, b) \in R \land (b, c) \in R) \Rightarrow (a, c) \notin R$
+        \\\\
+        Because if $a, b, c \in A, ((a, b) \in R \land (b, c) \in R) \Rightarrow (a, c) \in R$ it implies $a = b$ which is not true for this relation.
+        \\\\
+
+    b) $R = \{(a, b) | a, b \in Z \land |a - b| \leq 3 \}$
+        \\\\
+        For reflexivity:
+        $\forall a \in A, (a, a) \in R$
+        \\\\
+        Because the distance between same numbers is zero, which satisfies the condition.
+        \\\\
+        For symmetry:
+        $\forall a, b \in A, (a, b) \in R \Rightarrow (b, a) \in R$
+        \\\\
+        Because the operation $|a - b|$ is commutative thus the relation is symmetric as long as the distance between $a$ and $b$ is less than 3.
+        \\\\
+        For transitivity:
+        $\forall a, b, c \in A, ((a, b) \in R \land (b, c) \in R) \Rightarrow (a, c) \notin R $
+
+        Because even if $(a, b)$ and $(b, c)$ satisfy the relation, it does not imply that $(a, c)$ satisfies the condition.
+        Example:
+        $(1, 3) = 2$
+        $(3, 5) = 2$
+        $(1, 5) = 4$ which does not satisfy the relation.
+        \\\\
+    c) $R = \{(a, b) | a, b \in Z \land (a mod 10) = (b mod 10) \}$
+        \\\\
+        For reflexivity:
+        $\forall a \in A, (a, a) \in R$
+        \\\\
+        Because $(a mod 10) = (a mod 10)$ is true.
+        \\\\
+        For symmetry:
+        $\forall a, b \in A, (a, b) \in R \Rightarrow (b, a) \in R$
+        \\\\
+        Because the operation $(a mod 10) = (b mod 10)$ is commutative.
+        \\\\
+        For transitivity:
+        $\forall a, b, c \in A, ((a, b) \in R \land (b, c) \in R) \Rightarrow (a, c) \in R $
+        \\\\
+        Because  $(a, b)$ and $(b, c)$ satisfy the relation, it implies that $(a, c)$ satisfies the condition.
+        If \\\\
+        $(a mod 10) = (b mod 10)$ and $(b mod 10) = (c mod 10)$
+        It implies: \\\\
+        $(a mod 10) = (c mod 10)$
+        \\\\
+        
+\end{document}

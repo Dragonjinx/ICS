@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[legalpaper, landscape, margin = 2cm]{geometry}
+
+\begin{document}
+    \title{ICS Problem sheet 8}
+    \maketitle
+    \section{\textbf{Prime Implicants}}
+    \begin{center}
+        \begin{tabular}{ | c | c | c | c | c | c | c | c | c | }
+            \hline
+            Number of 1 & Minterm & Binary & Used &  & Used & Size 2 Implicants &  & Size 4 Implicants \\
+            \hline
+            0 & m0 & 0 0 0 0 0 & * & m(0,2) & * & 0 0 0 \_ 0 & m(0,2,4,6) & 0 0 \_ \_ 0 \\
+            \hline
+            &  &  &  & m(0,4) & * & 0 0 \_ 0 0 & m(0,4,2,6) & 0 0 \_ \_ 0 \\
+            \hline
+            &  &  &  & m(0,16) &  & \_ 0 0 0 0 &  &  \\
+            \hline
+            1 & m2 & 0 0 0 1 0 & * & m(2,6) & * & 0 0 \_ 1 0 & m(2,6,10,14) & 0 \_ \_ 1 0 \\
+            \hline
+            &  &  &  & m(2,10) & * & 0 \_ 0 1 0 &  &  \\
+            \hline
+            & m4 & 0 0 1 0 0 & * & m(4,6) & * & 0 0 1 \_ 0 &  &  \\
+            \hline
+            & m16 & 1 0 0 0 0 & * & m(16,17) &  & 1 0 0 0 \_ &  &  \\
+            \hline
+            2 & m6 & 0 0 1 1 0 & * & m(6,14) & * & 0 \_ 1 1 0 &  &  \\
+            \hline
+            & m9 & 0 1 0 0 1 & * & m(9,13) &  & 0 1 \_ 0 1 &  &  \\
+            \hline
+            & m10 & 0 1 0 1 0 & * & m(10,14) & * & 0 1 \_ 1 0 & m(10,14,26,30)  & \_ 1 \_ 1 0 \\
+            \hline
+            &  &  &  & m(10,26) & * & \_ 1 0 1 0 &  &  \\
+            \hline
+            & m17 & 1 0 0 0 1 & * & m(17,21) &  & 1 0 \_ 0 1 &  &  \\
+            \hline
+            3 & m13 & 0 1 1 0 1 & * & m(13,15) &  & 0 1 1 \_ 1 &  &  \\
+            \hline
+            & m14 & 0 1 1 1 0 & * & m(14,15) & * & 0 1 1 1 \_ & m(14,15,30,31) & \_ 1 1 1 \_ \\
+            \hline
+            &  &  &  & m(14,30) & * & \_ 1 1 1 0 &  &  \\
+            \hline
+            & m21 & 1 0 1 0 1 & * &  &  &  &  &  \\
+            \hline
+            & m26 & 1 1 0 1 0 & * & m(26,30) & * & 1 1 \_ 1 0 &  &  \\
+            \hline
+            & m28 & 1 1 1 0 0 & * & m(28,30) &  & 1 1 1 \_ 0 &  &  \\
+            \hline
+            4 & m15 & 0 1 1 1 1 & * & m(15,31) & * & \_ 1 1 1 1 &  &  \\
+            \hline
+            & m30 & 1 1 1 1 0 & * & m(30,31) & * & 1 1 1 1 \_ &  &  \\
+            \hline
+            5 & m31 & 1 1 1 1 1 & * &  &  &  &  &  \\
+            \hline
+        \end{tabular}
+    \end{center}
+	\clearpage
+	
+    The prime implicants are all the ones which cannot be further be minimized:\\
+    
+    $m(0, 16) : (\neg B \land \neg C \land \neg D \land \neg E)$\\
+    
+    $m(16, 17) : (A \land \neg B \land \neg C \land \neg D)$\\
+    
+    $m(9, 13) : (\neg A \land B \land \neg D \land E)$\\
+    
+    $m(17, 21) : (A \land \neg B \land \neg D \land E)$\\
+    
+    $m(13, 15) : (\neg A \land B \land C \land \neg E)$\\
+    
+    $m(28, 30) : (A \land B \land C \land \neg E)$\\
+    
+    $m(0, 2, 4, 6) : (\neg A \land \neg B \land \neg E)$\\
+    
+    $m(2, 6, 10, 14) : (\neg A \land D \land \neg E)$\\
+    
+    $m(10, 14, 26, 30) : (B \land D \land \neg E)$\\
+    
+    $m(14, 15, 30, 31) : (B \land C \land D)$\\
+    \clearpage
+
+	\section{\textbf{Essential Prime Implicants}}
+	\begin{center}
+		\begin{tabular}{ | l | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} | m{0.5cm} |  }
+			\hline
+			Minterms & 0 & 2 & 4 & 6 & 9 & 10 & 13 & 14 & 15 & 16 & 17 & 21 & 26 & 28 & 30 & 31 \\
+			\hline
+			M(0,16) & * & - & - & - & - & - & - & - & - & * & - & - & - & - & - & - \\
+			\hline
+			M(16,17) & - & - & - & - & - & - & - & - & - & * & * & - & - & - & - & - \\
+			\hline
+			M(9,13) & - & - & - & - & * & - & * & - & - & - & - & - & - & - & - & - \\
+			\hline
+			M(17,21) & - & - & - & - & - & - & - & - & - & - & * & * & - & - & - & - \\
+			\hline
+			M(13,15) & - & - & - & - & - & - & * & - & * & - & - & - & - & - & - & - \\
+			\hline
+			M(28,30) & - & - & - & - & - & - & - & - & - & - & - & - & - & * & * & - \\
+			\hline
+			M(0,2,4,6) & * & * & * & * & - & - & - & - & - & - & - & - & - & - & - & - \\
+			\hline
+			M(2,6,10,14) & - & * & - & * & - & * & - & * & - & - & - & - & - & - & - & - \\
+			\hline
+			M(10,14,26,30) & - & - & - & - & - & * & - & * & - & - & - & - & * & - & * & - \\
+			\hline
+			M(14,15,30,31) & - & - & - & - & - & - & - & * & * & - & - & - & - & - & * & * \\
+			\hline
+		\end{tabular}
+    \end{center}
+
+    From the table we derive the essential prime implicants:\\
+
+    $m(0, 2, 4, 6) : (\neg A \land \neg B \land \neg E)$\\
+
+    $m(9, 13) : (\neg A \land B \land \neg D \land E)$\\
+
+    $m(17, 21) : (A \land \neg B \land \neg D \land E)$\\
+    
+    $m(28,30) : (A \land B  \land C \land \neg E)$\\
+
+    $m(10, 14, 26, 30) : (B \land D \land \neg E)$\\
+    
+    $m(14, 15, 30, 31) : (B \land C \land D)$\\
+
+    \section{\textbf{Minimal boolean expressions}}
+    
+    The  essential prime implicants do not cover $m_{16}$. The minimal expressions is the sum of all the essential prime implicants and the prime implicants that cover the missing conditions.\\
+	\\
+    $(\neg A \land \neg B \land \neg E) \lor (\neg A \land B \land \neg D \land E) \lor (A \land \neg B \land \neg D \land E) \lor (B \land D \neg E) \lor (B \land C \land D) \lor (A \land B \land C \land \neg E) \lor (\neg B \land \neg C \land \neg D \land \neg E)$\\
+    \\
+    $(\neg A \land \neg B \land \neg E) \lor (\neg A \land B \land \neg D \land E) \lor (A \land \neg B \land \neg D \land E) \lor (B \land D \neg E) \lor (B \land C \land D) \lor (A \land B \land C \land \neg E) \lor (A \land \neg B \land \neg C \land \neg D)$
+
+
+\end{document}
+
+
